@@ -34,8 +34,6 @@ exclude = ["./migrations"]
 
 [tool.ruff.lint.isort]
 lines-after-imports = 2
-
-[tool.ruff.isort]
 known-first-party = ["src"]
 
 [tool.ruff.format]

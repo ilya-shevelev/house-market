@@ -6,15 +6,17 @@ from src.lib.models import Base
 
 
 class RoleModel(Base):
-    """
-    Модель роли пользователя
+	"""
+	Модель роли пользователя
 
-    :param code: Кодовое название роли
-    """
+	:param code: Кодовое название роли
+	"""
 
-    __tablename__ = "roles"
+	__tablename__ = "roles"
 
-    code: Mapped[Role] = mapped_column(String(9), unique=True)
+	code: Mapped[Role] = mapped_column(String(9), unique=True)
 
-    users: Mapped[list["UserModel"]] = relationship("UserModel", back_populates="role")
-    permissions: Mapped[list["PermissionModel"]] = relationship("PermissionModel", secondary="roles_permissions", back_populates="roles")
+	users: Mapped[list["UserModel"]] = relationship("UserModel", back_populates="role")  # noqa: F821
+	permissions: Mapped[list["PermissionModel"]] = relationship(  # noqa: F821
+		"PermissionModel", secondary="roles_permissions", back_populates="roles"
+	)
