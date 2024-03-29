@@ -16,7 +16,7 @@ class Base(DeclarativeBase):
 
     __abstract__ = True
 
-    id: Mapped[UUID] = mapped_column(default=uuid4, primary_key=True)
+    id: Mapped[UUID] = mapped_column(default=uuid4, primary_key=True, unique=True)
     created_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         TIMESTAMP(timezone=True), server_default=func.now(), onupdate=func.now()
