@@ -5,13 +5,20 @@ from sqlalchemy import pool
 
 from alembic import context
 from migrations.base import Base
-from src.config.db import database_config
+from src.config.db import db_config
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
-config.set_main_option("sqlalchemy.url", database_config.database_url)
+section = config.config_ini_section
+config.set_section_option(section, "POSTGRES_HOST", db_config.POSTGRES_HOST)
+config.set_section_option(section, "POSTGRES_PORT", db_config.POSTGRES_PORT)
+config.set_section_option(section, "POSTGRES_USER", db_config.POSTGRES_USER)
+config.set_section_option(section, "POSTGRES_DB", db_config.POSTGRES_DB)
+config.set_section_option(section, "POSTGRES_PASSWORD", db_config.POSTGRES_PASSWORD)
+
+# config.set_main_option("sqlalchemy.url", database_config.database_url)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

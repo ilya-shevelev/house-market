@@ -17,4 +17,4 @@ class DatabaseConfig(BaseSettings):
 		)
 
 
-database_config = DatabaseConfig()
+db_config = DatabaseConfig()

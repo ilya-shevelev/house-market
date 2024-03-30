@@ -15,6 +15,7 @@ class PermissionModel(Base):
 
 	code: Mapped[str] = mapped_column(String(20), unique=True)
 	description: Mapped[str] = mapped_column(String(50), nullable=True)
+
 	roles: Mapped[list["RoleModel"]] = relationship(  # noqa: F821
 		"RoleModel", secondary="roles_permissions", back_populates="permissions"
 	)
