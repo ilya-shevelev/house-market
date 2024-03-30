@@ -29,7 +29,7 @@ class UserModel(Base):
 	first_name: Mapped[str] = mapped_column(String(20))
 	last_name: Mapped[str] = mapped_column(String(20))
 	username: Mapped[str] = mapped_column(String(20), unique=True)
-	password: Mapped[str]  # TODO password hashing
+	password: Mapped[str]
 	email: Mapped[str] = mapped_column(String(50), unique=True)
 	role_id: Mapped[UUID] = mapped_column(ForeignKey("roles.id"))
 
