@@ -41,7 +41,7 @@ class AuthUseCase:
 			)
 		).id
 		await self.verify_code_repository.create(
-			VerifyCodeDTO(  # TODO: Redis
+			VerifyCodeDTO(
 				code=verify_code,
 				user_id=user_id,
 			)

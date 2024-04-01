@@ -6,6 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class VerifyCodeConfig(BaseSettings):
 	LENGTH: int
 	VALID_CHARACTERS: str = digits
+	TTL: int
 
 	model_config = SettingsConfigDict(env_prefix="VERIFY_CODE_")
 
