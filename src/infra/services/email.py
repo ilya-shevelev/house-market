@@ -1,6 +1,5 @@
 from email.mime.text import MIMEText
 
-
 from src.config.email import email_config
 from src.domain.user.dtos import EmailDTO
 from src.infra.tasks.send_email import send_email
@@ -27,6 +26,3 @@ class EmailService:
 			self.smtp_port,
 			dto.recipient_email,
 		)
-
-
-email_service = EmailService()
