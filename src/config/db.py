@@ -1,13 +1,16 @@
 from pydantic import PostgresDsn
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class DatabaseConfig(BaseSettings):
-	POSTGRES_USER: str
-	POSTGRES_PASSWORD: str
-	POSTGRES_HOST: str
-	POSTGRES_PORT: str
-	POSTGRES_DB: str
+	USER: str
+	PASSWORD: str
+	HOST: str
+	PORT: str
+	DB: str
+	ECHO: bool = False
+
+	model_config = SettingsConfigDict(env_prefix="POSTGRES_")
 
 	@property
 	def database_url(self) -> PostgresDsn | None:

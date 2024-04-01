@@ -26,8 +26,8 @@ class UserModel(Base):
 
 	__tablename__ = "users"
 
-	first_name: Mapped[str] = mapped_column(String(20))
-	last_name: Mapped[str] = mapped_column(String(20))
+	first_name: Mapped[str] = mapped_column(String(20), nullable=True)
+	last_name: Mapped[str] = mapped_column(String(20), nullable=True)
 	username: Mapped[str] = mapped_column(String(20), unique=True)
 	password: Mapped[str]
 	email: Mapped[str] = mapped_column(String(50), unique=True)
